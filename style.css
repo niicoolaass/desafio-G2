@@ -16,7 +16,6 @@ body {
   background-color: #0A0716;
 }
 
-
 button {
   cursor: pointer;
 }
@@ -26,8 +25,7 @@ button {
   min-height: 30vh;
   border-radius: 10px;
   background: white;
-  border: 1px solid #cccccc;
-
+  box-shadow: 6px 6px #662d91;
 }
 
 .header {
@@ -84,7 +82,7 @@ table {
 }
 
 thead {
-  background-color: #0091B4;
+  background-color: #662d91;
   color: white;
 }
 
