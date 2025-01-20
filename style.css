@@ -47,6 +47,7 @@ button {
 #new {
   font-size: 0.9em;
   background: #5df8fc;
+  font-weight: 600;
   border: none;
   color: black;
   display: block;
