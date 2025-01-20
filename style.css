@@ -13,7 +13,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0,0,0,0.1);
+  background-color: #0A0716;
 }
 
 
@@ -23,7 +23,7 @@ button {
 
 .container {
   width: 60%;
-  height: 60%;
+  min-height: 30vh;
   border-radius: 10px;
   background: white;
   border: 1px solid #cccccc;
@@ -35,7 +35,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 2em 2em;
+  margin: 0 1em;
 }
 
 .header span {
@@ -45,13 +45,11 @@ button {
 }
 
 #new {
-  font-weight: bold;
   font-size: 0.9em;
-  background: #29903B;
+  background: #5df8fc;
   border: none;
-  color: #eee;
+  color: black;
   display: block;
-  width: 7em;
   border-radius: 5px;
   padding: 1em;
   cursor: pointer;
@@ -59,13 +57,12 @@ button {
 }
 
 #new:hover {
-  background: #248736;
+  background: #0091B4;
 }
 
 .divTable {
-  padding: 10px;
+  padding: 1em;
   width: auto; 
-  height:inherit; 
   overflow:auto;
 }
 
@@ -86,7 +83,7 @@ table {
 }
 
 thead {
-  background-color: #29903B;
+  background-color: #0091B4;
   color: white;
 }
 
@@ -119,41 +116,6 @@ tbody tr td.acao {
   text-align: center;
 }
 
-@media (max-width: 700px) {
-  body {
-    font-size: 10px;
-  }
-  
-  .header span {
-    font-size: 15px;
-  }
-
-  #new {
-    padding: 5px;
-    font-size: 10px;
-  }
-
-  thead tr th.acao {
-    width: auto!important;
-  }
-  
-  td button i {
-    font-size: 20px!important;
-  }
-
-  td button i:first-child {
-    margin-right: 0;
-  }
-
-  .modal {
-    width: 90%!important;
-  }
-
-  .modal label {
-    font-size: 12px!important;
-  }
-}
-
 .modal-container {
   width: 100vw;
   height: 100vh;
@@ -174,7 +136,7 @@ tbody tr td.acao {
   padding: 20px;
   background-color: white;
   border-radius: 10px;
-  width: 50%;
+  width: 25%;
 }
 
 .modal label {
@@ -197,9 +159,9 @@ tbody tr td.acao {
 .modal button {
   font-weight: bold;
   font-size: 0.8em;
-  background: #29903B;
+  background: #5df8fc;
   border: none;
-  color: #eee;
+  color: black;
   width: 100%;
   border-radius: 5px;
   padding: 1em;
@@ -209,7 +171,7 @@ tbody tr td.acao {
 }
 
 .modal button:hover {
-  background-color: #248736;
+  background-color: #0091B4;
 }
 
 .active {
@@ -217,7 +179,7 @@ tbody tr td.acao {
 }
 
 .active .modal {
-  animation: modal .4s;
+  animation: modal .5s;
 }
 
 @keyframes modal {
@@ -239,8 +201,54 @@ td button {
 
 td button i {
   font-size: 25px;
+  transition: color 0.3s; 
 }
 
 td button i:first-child {
   margin-right: 10px;
 }
+
+.acao button:hover .bx-edit {
+  color: gray; 
+}
+
+.acao button:hover .bx-trash {
+  color: red; 
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 10px;
+  }
+  
+  .header span {
+    font-size: 15px;
+  }
+
+  #new {
+    padding: 5px;
+    font-size: 10px;
+  }
+
+  thead tr th.acao {
+    width: auto!important;
+  }
+  
+  td button i {
+    font-size: 15px!important;
+  }
+
+  td button i:first-child {
+    margin-right: 0;
+  }
+
+  .modal {
+    width: 90%!important;
+  }
+
+  .modal label {
+    font-size: 12px!important;
+  }
+}
+
+
