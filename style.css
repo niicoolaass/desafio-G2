@@ -21,7 +21,7 @@ button {
 }
 
 .container {
-  width: 40%;
+  width: 40vw;
   min-height: 30vh;
   border-radius: 10px;
   background: white;
@@ -221,12 +221,12 @@ td button i:first-child {
   }
 
   .container {
-    width: 90%;
+    width: 90vw;
     box-shadow: 3px 3px #662d91;
   }
   
   .header span {
-    font-size: 15px;
+    font-size: 1.5em;
   }
 
   #new {

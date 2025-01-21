@@ -33,7 +33,6 @@ function openModal(edit = false, index = 0) {
 }
 
 button.addEventListener('click', function(event) {
-    event.stopPropagation(); // Impede que o clique se propague para o modal
     if (input.placeholder === "Digite o CNPJ") {
         input.placeholder = "Digite o CPF";
         button.textContent = "Trocar para CNPJ";
@@ -45,6 +44,7 @@ button.addEventListener('click', function(event) {
     }
 });
 
+// Funções para validar e formatar CPF e CNPJ
 function validarCPF(cpf) {
     const regex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
     return regex.test(cpf);
@@ -84,6 +84,7 @@ function formatarCNPJ(valor) {
 btnSalvar.onclick = e => {
     e.preventDefault();
     let valor = input.value.trim();
+    
 
     if (tipo === 'CPF') {
         if (!/^\d{11}$/.test(valor)) {
