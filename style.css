@@ -8,6 +8,7 @@
   font-family: 'Poppins', sans-serif; 
 }
 
+/* Definindo as variáveis das cores */
 :root {
   --fundo-escuro: #0A0716;
   --cor-destaque: #0091B4;
