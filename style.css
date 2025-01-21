@@ -21,7 +21,7 @@ button {
 }
 
 .container {
-  width: 60%;
+  width: 40%;
   min-height: 30vh;
   border-radius: 10px;
   background: white;
@@ -218,6 +218,10 @@ td button i:first-child {
 @media (max-width: 768px) {
   body {
     font-size: 10px;
+  }
+
+  .container {
+    width: 70%;
   }
   
   .header span {

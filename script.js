@@ -45,14 +45,69 @@ button.addEventListener('click', function(event) {
     }
 });
 
-// Função para salvar ou editar
+function validarCPF(cpf) {
+    const regex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+    return regex.test(cpf);
+}
+
+function validarCNPJ(cnpj) {
+    const regex = /^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/;
+    return regex.test(cnpj);
+}
+
+function formatarCPF(valor) {
+    return valor.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+}
+
+function formatarCNPJ(valor) {
+    return valor.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
+}
+
+function validarCPF(cpf) {
+    const regex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+    return regex.test(cpf);
+}
+
+function validarCNPJ(cnpj) {
+    const regex = /^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/;
+    return regex.test(cnpj);
+}
+
+function formatarCPF(valor) {
+    return valor.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+}
+
+function formatarCNPJ(valor) {
+    return valor.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
+}
+
 btnSalvar.onclick = e => {
     e.preventDefault();
-    if (input.value == '') {
-        return;
+    let valor = input.value.trim();
+
+    if (tipo === 'CPF') {
+        if (!/^\d{11}$/.test(valor)) {
+            alert('O CPF deve conter exatamente 11 dígitos.');
+            return;
+        }
+        valor = formatarCPF(valor);
+        if (!validarCPF(valor)) {
+            alert('Formato de CPF inválido.');
+            return;
+        }
+    } else {
+        if (!/^\d{14}$/.test(valor)) {
+            alert('O CNPJ deve conter exatamente 14 dígitos.');
+            return;
+        }
+        valor = formatarCNPJ(valor);
+        if (!validarCNPJ(valor)) {
+            alert('Formato de CNPJ inválido.');
+            return;
+        }
     }
 
-    const novoItem = { funcao: input.value, tipo: tipo };
+    const novoItem = { funcao: valor, tipo: tipo };
 
     if (id !== undefined) {
         itens[id] = novoItem; // Atualiza o item existente
@@ -65,6 +120,7 @@ btnSalvar.onclick = e => {
     loadItens();
     id = undefined; // Reseta o id após salvar
 }
+
 
 // Função para editar um item
 function editItem(index) {
