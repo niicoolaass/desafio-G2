@@ -322,8 +322,10 @@ td button i:first-child {
   body {
     font-size: 10px;
   }
+  .header span {
+    font-size: 1.5em;
+}
 
-  
 
   .container {
     width: 90vw;
