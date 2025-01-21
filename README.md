@@ -3,7 +3,7 @@ Este projeto é um desafio proposto pela G2, que consistia em uma sitema web de 
 
 ## Funcionalidades 
 
-- Adicionar novos CPF's e CNPJ'S
+- Adicionar novos CPF's e CNPJ's
 - Editar
 - Excluir
 - Menu de acessibilidades
