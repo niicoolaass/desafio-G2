@@ -29,7 +29,7 @@ button {
 
 /* Modo Escuro */
 .container.dark-mode {
-  background-color: #121212;
+  background-color: #111111;
   color: white;
 
   i {
@@ -45,9 +45,8 @@ button {
     background: none;
     color: white;
   }
+
 }
-
-
 
 .container {
   width: 40vw;
@@ -247,11 +246,11 @@ td button i:first-child {
   margin-right: 10px;
 }
 
-.acao button:hover .bx-edit {
+.acao button:hover .icon-edit {
   color: gray; 
 }
 
-.acao button:hover .bx-trash {
+.acao button:hover .icon-trash {
   color: red; 
 }
 

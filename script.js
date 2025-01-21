@@ -26,7 +26,7 @@ function toggleDarkMode() {
     elements.forEach(element => {
       if (element) {
         element.classList.toggle('dark-mode');
-      }
+        }
     });
   }
   
@@ -150,10 +150,10 @@ function insertItem(item, index) {
         <td>${item.funcao}</td>
         <td>${item.tipo}</td>
         <td class="acao">
-            <button onclick="editItem(${index})"><i class='bx bx-edit' ></i></button>
+            <button onclick="editItem(${index})"><i class="fa-solid icon-edit fa-pen-to-square"></i></button>
         </td>
         <td class="acao">
-            <button onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
+            <button onclick="deleteItem(${index})"><i class='fa icon-trash fa-trash'></i></button>
         </td>
     `;
     tbody.appendChild(tr);
