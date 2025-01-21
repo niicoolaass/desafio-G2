@@ -46,6 +46,8 @@ button {
     color: white;
   }
 
+  
+
 }
 
 .container {
@@ -238,7 +240,7 @@ td button {
 }
 
 td button i {
-  font-size: 25px;
+  font-size: 22px;
   transition: color 0.3s; 
 }
 

@@ -14,21 +14,33 @@ let tipo = 'CNPJ'; // Variável para armazenar o tipo (CPF ou CNPJ)
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
     const elements = [
-      document.querySelector('.container'),
-      document.querySelector('.header'),
-      document.querySelector('#new'),
-      document.querySelector('.divTable'),
-      document.querySelector('.modal-container'),
-      document.querySelector('.modal'),
-      document.querySelector('#btnSalvar')
+        document.querySelector('.container'),
+        document.querySelector('.header'),
+        document.querySelector('#new'),
+        document.querySelector('.divTable'),
+        document.querySelector('.modal-container'),
+        document.querySelector('.modal'),
+        document.querySelector('#btnSalvar')
     ];
-  
+
     elements.forEach(element => {
-      if (element) {
-        element.classList.toggle('dark-mode');
+        if (element) {
+            element.classList.toggle('dark-mode');
         }
     });
-  }
+
+    const iconLight = document.getElementById('icon-light');
+    const iconDark = document.getElementById('icon-dark');
+    
+    // Alterna a visibilidade dos ícones
+    if (iconLight.style.display === 'none') {
+        iconLight.style.display = 'inline';
+        iconDark.style.display = 'none';
+    } else {
+        iconLight.style.display = 'none';
+        iconDark.style.display = 'inline';
+    }
+}
   
 
 function openModal(edit = false, index = 0) {
