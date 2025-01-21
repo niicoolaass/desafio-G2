@@ -28,17 +28,16 @@ darkModeBtn.addEventListener('click', () => {
     }
 });
 
-
 // Ajuste de fontes
-const increaseFontSizeBtn = document.getElementById('increaseFontSize');
-const decreaseFontSizeBtn = document.getElementById('decreaseFontSize');
-const normalFontSize = document.getElementById('normalFontSize');
+const aumentarFonteBtn = document.getElementById('increaseFontSize');
+const diminuirFonteBtn = document.getElementById('decreaseFontSize');
+const fonteNormal = document.getElementById('normalFontSize');
 let tamanhoFonte = 100;
 let tamanhDiferenca = 10;
 let numClicks = 0;
 
 // Função para aumentar o tamanho da fonte
-increaseFontSizeBtn.addEventListener('click', () => {
+aumentarFonteBtn.addEventListener('click', () => {
     if (numClicks < 3) {
         tamanhoFonte = tamanhoFonte + tamanhDiferenca;
         document.body.style.fontSize = tamanhoFonte + '%';
@@ -49,23 +48,22 @@ increaseFontSizeBtn.addEventListener('click', () => {
 });
 
 // Função para diminuir o tamanho da fonte
-decreaseFontSizeBtn.addEventListener('click', () => {
+diminuirFonteBtn.addEventListener('click', () => {
     if (numClicks > -3) {
         tamanhoFonte = tamanhoFonte - tamanhDiferenca;
         document.body.style.fontSize = tamanhoFonte + '%';
         numClicks--;
-        } else {
+    } else {
         alert('Limite mínimo de zoom');
     };
 });
 
-normalFontSize.addEventListener('click', function(){
+fonteNormal.addEventListener('click', function(){
     numClicks = 0;
     tamanhoFonte = 100;
     document.body.style.fontSize = tamanhoFonte + '%';
 });
 
-
 window.addEventListener('load', () => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
@@ -77,19 +75,6 @@ window.addEventListener('load', () => {
         iconDark.style.display = 'none';
     }
 });
-
-window.addEventListener('load', () => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        body.classList.add('dark-mode');
-        iconLight.style.display = 'none';
-        iconDark.style.display = 'block';
-    } else {
-        iconLight.style.display = 'block';
-        iconDark.style.display = 'none';
-    }
-});
-
 
 function openModal(edit = false, index = 0) {
     modal.classList.add('active');
@@ -127,7 +112,6 @@ button.addEventListener('click', function(event) {
         text.textContent = 'CNPJ:'
     }
 });
-
 
 // Funções para validar e formatar CPF e CNPJ
 function validarCPF(cpf) {
@@ -200,7 +184,6 @@ btnSalvar.onclick = e => {
     loadItens();
     id = undefined; // Reseta o id após salvar
 }
-
 
 // Função para editar um item
 function editItem(index) {
