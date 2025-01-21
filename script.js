@@ -3,6 +3,8 @@ const tbody = document.querySelector('tbody');
 const btnSalvar = document.querySelector('#btnSalvar');
 const input = document.getElementById('identificador');
 const button = document.getElementById('trocarBtn');
+const text = document.getElementById('t-txt');
+
 
 let itens;
 let id;
@@ -22,25 +24,27 @@ function openModal(edit = false, index = 0) {
         input.value = itens[index].funcao;
         tipo = itens[index].tipo;
         id = index;
-        button.textContent = tipo === 'CNPJ' ? 'Trocar para CPF' : 'Trocar para CNPJ';
-        input.placeholder = tipo === 'CNPJ' ? 'Digite o CNPJ' : 'Digite o CPF';
+        button.textContent = tipo === 'CPF' ? 'Trocar para CNPJ' : 'Trocar para CPF';
+        input.placeholder = tipo === 'CPF' ? 'Digite o CPF' : 'Digite o CNPJ';
     } else {
         input.value = '';
-        tipo = 'CNPJ'; // Define o tipo como CNPJ ao abrir o modal em branco
-        button.textContent = 'Trocar para CPF';
-        input.placeholder = 'Digite o CNPJ';
+        tipo = 'CPF'; // Define o tipo como CNPJ ao abrir o modal em branco
+        button.textContent = 'Trocar para CNPJ';
+        input.placeholder = 'Digite o CPF';
     }
 }
 
-button.addEventListener('click', function(event) {
+button.addEventListener('click', function() {
     if (input.placeholder === "Digite o CNPJ") {
         input.placeholder = "Digite o CPF";
         button.textContent = "Trocar para CNPJ";
         tipo = 'CPF';
+        text.textContent = 'CPF:'
     } else {
         input.placeholder = "Digite o CNPJ";
         button.textContent = "Trocar para CPF";
         tipo = 'CNPJ';
+        text.textContent = 'CNPJ:'
     }
 });
 

@@ -37,15 +37,15 @@ button {
 }
 
 .header span {
-  font-weight: 900;
+  font-weight: 600;
   font-size: 2em;
   word-break: break-all;
 }
 
 #new {
   font-size: 0.9em;
+  font-weight: bold;
   background: #5df8fc;
-  font-weight: 600;
   border: none;
   color: black;
   display: block;
