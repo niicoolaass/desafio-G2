@@ -45,9 +45,6 @@ button {
     background: none;
     color: white;
   }
-
-  
-
 }
 
 .container {
@@ -163,27 +160,29 @@ tbody tr td.acao {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 30px;
   background-color: white;
   border-radius: 10px;
-  width: 25%;
+  width: fit-content;
 }
 
 .modal label {
   font-size: 20px;
-  width: 100%;
-  margin-top: 40;
 }
 
 .modal input {
   width: 100%;
   outline: none;
   padding: 5px 10px; 
-  width: 100%;
-  margin-bottom: 20px;
   border-top: none;
   border-left: none;
   border-right: none;
+}
+
+.btnAlternar {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 input[type=number]::-webkit-inner-spin-button { 
@@ -206,7 +205,6 @@ input[type=number] {
   border-radius: 5px;
   padding: 1em;
   cursor: pointer;
-  margin-bottom: 10px;
   transition: 0.3s;
 }
 

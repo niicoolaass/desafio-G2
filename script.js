@@ -100,29 +100,44 @@ function formatarCNPJ(valor) {
     return valor.replace(/(^\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
 }
 
+function aplicarMascara(event) {
+    let valor = event.target.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+
+    if (tipo === 'CPF') {
+        if (valor.length > 11) valor = valor.substring(0, 11); // Limita a 11 dígitos
+        // Aplica a máscara de CPF
+        valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+        valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+        valor = valor.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+    } else {
+        if (valor.length > 14) valor = valor.substring(0, 14); // Limita a 14 dígitos
+        // Aplica a máscara de CNPJ
+        valor = valor.replace(/(\d{2})(\d)/, '$1.$2');
+        valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+        valor = valor.replace(/(\d{3})(\d{4})(\d)/, '$1/$2-$3');
+    }
+
+    event.target.value = valor; // Atualiza o valor do campo com a máscara aplicada
+}
+
+// Adiciona o evento ao campo de entrada
+input.addEventListener('input', aplicarMascara);
+
+
 btnSalvar.onclick = e => {
     e.preventDefault();
     let valor = input.value.trim();
     
 
     if (tipo === 'CPF') {
-        if (!/^\d{11}$/.test(valor)) {
+        if (valor < 11) {
             alert('O CPF deve conter exatamente 11 dígitos.');
             return;
         }
-        valor = formatarCPF(valor);
-        if (!validarCPF(valor)) {
-            alert('Formato de CPF inválido.');
-            return;
-        }
+        
     } else {
-        if (!/^\d{14}$/.test(valor)) {
+        if (valor < 14) {
             alert('O CNPJ deve conter exatamente 14 dígitos.');
-            return;
-        }
-        valor = formatarCNPJ(valor);
-        if (!validarCNPJ(valor)) {
-            alert('Formato de CNPJ inválido.');
             return;
         }
     }
