@@ -200,9 +200,11 @@ function deleteItem(index) {
 // Função para inserir item na tabela
 function insertItem(item, index) {
     let tr = document.createElement('tr');
+    
+    let valorFormatado = item.tipo === 'CPF' ? formatarCPF(item.funcao) : formatarCNPJ(item.funcao);
 
     tr.innerHTML = `
-        <td>${item.funcao}</td>
+        <td>${valorFormatado}</td>
         <td>${item.tipo}</td>
         <td class="acao">
             <button onclick="editItem(${index})"><i class="fa-solid icon-edit fa-pen-to-square"></i></button>
