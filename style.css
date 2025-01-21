@@ -8,11 +8,48 @@
 }
 
 .acessibilidades {
+  position: fixed;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #0A0716;
+  font-size: initial;
 }
+
+.acessibilidades button {
+  margin: 1em;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.acessibilidades button:hover {
+  color: #0091B4;
+}
+
+#increaseFontSize,
+#decreaseFontSize,
+#normalFontSize {
+  font-size: 0.8em;
+  font-weight: bold;
+  background: #5df8fc;
+  border: none;
+  color: black;
+  display: block;
+  border-radius: 5px;
+  padding: 0.7em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Hover para os dois botões de aumentar e diminuir o tamanho da fonte */
+#increaseFontSize:hover,
+#decreaseFontSize:hover,
+#normalFontSize:hover {
+  background-color: #0091B4;
+}
+
+
 
 .container-geral {
   width: 100vw;
@@ -20,47 +57,83 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #0A0716;
+  background-color: #e9e9e9;
 }
 
 button {
   cursor: pointer;
 }
 
-/* Modo Escuro */
-.container.dark-mode {
+/* Modo escuro */
+body.dark-mode {
+  background-color: #0A0716;
+}
+
+body.dark-mode .container-geral {
+  background-color: #0A0716;
+}
+
+body.dark-mode .container {
   background-color: #111111;
   color: white;
+}
 
-  i {
-    color: white;
-  }
+body.dark-mode table {
+  color: white;
+}
 
-  .modal {
-    background-color: black;
-    color: white;
-  }
+body.dark-mode .modal {
+  background-color: black;
+  color: white;
+}
 
-  .modal input {
-    background: none;
-    color: white;
-  }
+body.dark-mode .modal input {
+  background: none;
+  color: white;
+}
+
+body.dark-mode .header span {
+  color: white;
+}
+
+body.dark-mode #new {
+  background: #5df8fc;
+  color: black;
+}
+
+body.dark-mode td button i {
+  color: white;
+}
+
+body.dark-mode .acao button:hover .icon-edit {
+  color: gray;
+}
+
+body.dark-mode .acao button:hover .icon-trash {
+  color: red;
+}
+
+/* Ajuste de ícones no modo escuro */
+body.dark-mode .material-symbols-outlined {
+  color: white;
 }
 
 .container {
-  width: 40vw;
+  min-width: 40vw;
   min-height: 30vh;
   border-radius: 10px;
   background: white;
-  box-shadow: 6px 6px #662d91;
+  box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .header {
-  min-height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 1em;
 }
 
 .header span {
@@ -84,22 +157,6 @@ button {
 
 #new:hover {
   background: #0091B4;
-}
-
-.divTable {
-  padding: 1em;
-  width: auto; 
-  overflow:auto;
-}
-
-.divTable::-webkit-scrollbar {
-  width: 12px;
-  background-color: whitesmoke; 
-}
-
-.divTable::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: darkgray; 
 }
 
 table {
@@ -293,5 +350,3 @@ td button i:first-child {
     font-size: 12px!important;
   }
 }
-
-

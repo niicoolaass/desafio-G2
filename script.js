@@ -9,39 +9,87 @@ let itens;
 let id;
 let tipo = 'CNPJ'; // Variável para armazenar o tipo (CPF ou CNPJ)
 
-// Acessibilidade
+// Acessibilidade  
+const darkModeBtn = document.getElementById('darkModeBtn');
+const iconLight = document.getElementById('icon-light');
+const iconDark = document.getElementById('icon-dark');
+const body = document.querySelector('body');
 
-function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-    const elements = [
-        document.querySelector('.container'),
-        document.querySelector('.header'),
-        document.querySelector('#new'),
-        document.querySelector('.divTable'),
-        document.querySelector('.modal-container'),
-        document.querySelector('.modal'),
-        document.querySelector('#btnSalvar')
-    ];
+darkModeBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
 
-    elements.forEach(element => {
-        if (element) {
-            element.classList.toggle('dark-mode');
-        }
-    });
+    iconLight.style.display = iconLight.style.display === 'none' ? 'block' : 'none';
+    iconDark.style.display = iconDark.style.display === 'none' ? 'block' : 'none';
 
-    const iconLight = document.getElementById('icon-light');
-    const iconDark = document.getElementById('icon-dark');
-    
-    // Alterna a visibilidade dos ícones
-    if (iconLight.style.display === 'none') {
-        iconLight.style.display = 'inline';
-        iconDark.style.display = 'none';
+    if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
     } else {
-        iconLight.style.display = 'none';
-        iconDark.style.display = 'inline';
+        localStorage.setItem('theme', 'light');
     }
-}
-  
+});
+
+
+// Ajuste de fontes
+const increaseFontSizeBtn = document.getElementById('increaseFontSize');
+const decreaseFontSizeBtn = document.getElementById('decreaseFontSize');
+const normalFontSize = document.getElementById('normalFontSize');
+let tamanhoFonte = 100;
+let tamanhDiferenca = 10;
+let numClicks = 0;
+
+// Função para aumentar o tamanho da fonte
+increaseFontSizeBtn.addEventListener('click', () => {
+    if (numClicks < 3) {
+        tamanhoFonte = tamanhoFonte + tamanhDiferenca;
+        document.body.style.fontSize = tamanhoFonte + '%';
+        numClicks++;
+    } else {
+        alert('Limite máximo de zoom');
+    };
+});
+
+// Função para diminuir o tamanho da fonte
+decreaseFontSizeBtn.addEventListener('click', () => {
+    if (numClicks > -3) {
+        tamanhoFonte = tamanhoFonte - tamanhDiferenca;
+        document.body.style.fontSize = tamanhoFonte + '%';
+        numClicks--;
+        } else {
+        alert('Limite mínimo de zoom');
+    };
+});
+
+normalFontSize.addEventListener('click', function(){
+    numClicks = 0;
+    tamanhoFonte = 100;
+    document.body.style.fontSize = tamanhoFonte + '%';
+});
+
+
+window.addEventListener('load', () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        iconLight.style.display = 'none';
+        iconDark.style.display = 'block';
+    } else {
+        iconLight.style.display = 'block';
+        iconDark.style.display = 'none';
+    }
+});
+
+window.addEventListener('load', () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        iconLight.style.display = 'none';
+        iconDark.style.display = 'block';
+    } else {
+        iconLight.style.display = 'block';
+        iconDark.style.display = 'none';
+    }
+});
+
 
 function openModal(edit = false, index = 0) {
     modal.classList.add('active');
@@ -123,20 +171,17 @@ function aplicarMascara(event) {
 // Adiciona o evento ao campo de entrada
 input.addEventListener('input', aplicarMascara);
 
-
 btnSalvar.onclick = e => {
     e.preventDefault();
-    let valor = input.value.trim();
-    
+    let valor = input.value.trim().replace(/\D/g, ''); // Remove caracteres não numéricos antes de validar
 
     if (tipo === 'CPF') {
-        if (valor < 11) {
+        if (valor.length !== 11) {
             alert('O CPF deve conter exatamente 11 dígitos.');
             return;
         }
-        
     } else {
-        if (valor < 14) {
+        if (valor.length !== 14) {
             alert('O CNPJ deve conter exatamente 14 dígitos.');
             return;
         }
