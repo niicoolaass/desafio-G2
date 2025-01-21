@@ -7,7 +7,14 @@
   font-family: 'Poppins', sans-serif;
 }
 
-body {
+.acessibilidades {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0A0716;
+}
+
+.container-geral {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -19,6 +26,27 @@ body {
 button {
   cursor: pointer;
 }
+
+/* Modo Escuro */
+.container.dark-mode {
+  background-color: #121212;
+  color: white;
+
+  i {
+    color: white;
+  }
+
+  .modal {
+    background-color: black;
+    color: white;
+  }
+
+  .modal input {
+    background: none;
+  }
+}
+
+
 
 .container {
   width: 40vw;
@@ -86,7 +114,8 @@ thead {
   color: white;
 }
 
-tr {
+
+tbody tr {
   border-bottom: 1px solid rgb(238, 235, 235)!important;
 }
 
@@ -153,6 +182,16 @@ tbody tr td.acao {
   border-top: none;
   border-left: none;
   border-right: none;
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+  -webkit-appearance: none;
+  
+}
+input[type=number] { 
+ -moz-appearance: textfield;
+ appearance: textfield;
+
 }
 
 .modal button {

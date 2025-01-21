@@ -5,16 +5,36 @@ const input = document.getElementById('identificador');
 const button = document.getElementById('trocarBtn');
 const text = document.getElementById('t-txt');
 
-
 let itens;
 let id;
 let tipo = 'CNPJ'; // Variável para armazenar o tipo (CPF ou CNPJ)
+
+// Acessibilidade
+
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    const elements = [
+      document.querySelector('.container'),
+      document.querySelector('.header'),
+      document.querySelector('#new'),
+      document.querySelector('.divTable'),
+      document.querySelector('.modal-container'),
+      document.querySelector('.modal'),
+      document.querySelector('#btnSalvar')
+    ];
+  
+    elements.forEach(element => {
+      if (element) {
+        element.classList.toggle('dark-mode');
+      }
+    });
+  }
+  
 
 function openModal(edit = false, index = 0) {
     modal.classList.add('active');
 
     modal.onclick = e => {
-        // Fechar o modal se clicar na área de fundo
         if (e.target === modal) {
             modal.classList.remove('active');
         }
@@ -25,28 +45,29 @@ function openModal(edit = false, index = 0) {
         tipo = itens[index].tipo;
         id = index;
         button.textContent = tipo === 'CPF' ? 'Trocar para CNPJ' : 'Trocar para CPF';
-        input.placeholder = tipo === 'CPF' ? 'Digite o CPF' : 'Digite o CNPJ';
+        input.placeholder = tipo === 'CPF' ? 'Trocar para CNPJ' : 'Trocar para CPF';
     } else {
         input.value = '';
-        tipo = 'CPF'; // Define o tipo como CNPJ ao abrir o modal em branco
+        tipo = 'CPF'; 
         button.textContent = 'Trocar para CNPJ';
-        input.placeholder = 'Digite o CPF';
+        input.placeholder = 'Digite seu CPF (11 dígitos)';
     }
 }
 
-button.addEventListener('click', function() {
-    if (input.placeholder === "Digite o CNPJ") {
-        input.placeholder = "Digite o CPF";
+button.addEventListener('click', function(event) {
+    if (input.placeholder === "Digite seu CNPJ (14 dígitos)") {
+        input.placeholder = "Digite seu CPF (11 dígitos)";
         button.textContent = "Trocar para CNPJ";
         tipo = 'CPF';
         text.textContent = 'CPF:'
     } else {
-        input.placeholder = "Digite o CNPJ";
+        input.placeholder = "Digite seu CNPJ (14 dígitos)";
         button.textContent = "Trocar para CPF";
         tipo = 'CNPJ';
         text.textContent = 'CNPJ:'
     }
 });
+
 
 // Funções para validar e formatar CPF e CNPJ
 function validarCPF(cpf) {
@@ -64,25 +85,7 @@ function formatarCPF(valor) {
 }
 
 function formatarCNPJ(valor) {
-    return valor.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
-}
-
-function validarCPF(cpf) {
-    const regex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
-    return regex.test(cpf);
-}
-
-function validarCNPJ(cnpj) {
-    const regex = /^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/;
-    return regex.test(cnpj);
-}
-
-function formatarCPF(valor) {
-    return valor.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-}
-
-function formatarCNPJ(valor) {
-    return valor.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
+    return valor.replace(/(^\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
 }
 
 btnSalvar.onclick = e => {
