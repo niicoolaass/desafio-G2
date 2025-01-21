@@ -221,7 +221,8 @@ td button i:first-child {
   }
 
   .container {
-    width: 70%;
+    width: 90%;
+    box-shadow: 3px 3px #662d91;
   }
   
   .header span {
