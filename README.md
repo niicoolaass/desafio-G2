@@ -8,6 +8,12 @@ Este sistema é resolução de um desafio proposto pela G2, que consistia em cri
 - Excluir
 - Menu de acessibilidades
 
+## Métricas
+
+Atingindo altas pontuações que destacam o projeto.
+
+![image](https://github.com/user-attachments/assets/912963f8-e635-4da1-a602-bffc2e062464)
+
 ## Executando o projeto
 
 Clone o repositório:
@@ -15,12 +21,6 @@ Clone o repositório:
    git clone https://github.com/niicoolaass/lista-tarefas.git
    ```
 
-
-## Métricas
-
-Atingindo altas pontuações que destacam o projeto.
-
-![image](https://github.com/user-attachments/assets/912963f8-e635-4da1-a602-bffc2e062464)
 
 <hr>
 
