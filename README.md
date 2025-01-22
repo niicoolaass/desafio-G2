@@ -1,5 +1,5 @@
 <h1 align="center">Cadastro de CPF e CNPJ</h1>
-Este sistema é um desafio proposto pela G2, que consistia em uma sitema web de registro de CPF e CNPJ com diversas funcionalidades.<br>
+Este sistema é resolução de um desafio proposto pela G2, que consistia em criar sistema de registro de CPF e CNPJ com diversas funcionalidades.<br>
 
 ## Funcionalidades 
 
